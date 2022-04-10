@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TermApp"
+             x:Class="TermApp.Views.AssessmentDetail"
+             Title="Assessment Details">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit"
+                     Clicked="OnEditClicked" />
+    </ContentPage.ToolbarItems>
+	
+    <FlexLayout Margin="20"
+                Direction="Column">
+        <Label Text="{Binding AssessmentName}"
+               FontSize="Medium"/>
+        
+        <StackLayout Orientation="Horizontal">
+	        <Label Text="Due Date:"/>
+	        <Label Text="{Binding DueDate,
+                      StringFormat='{0:M-d-yyyy}'}" />
+        </StackLayout>
+        <Label Text="{Binding Type}"/>
+        
+		
+        
+    </FlexLayout>
+			
+
+</ContentPage>

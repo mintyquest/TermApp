@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TermApp"
+             x:Class="TermApp.Views.CourseDetail"
+             Title="Course Details">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edit"
+                     Clicked="OnEditClicked" />
+    </ContentPage.ToolbarItems>
+	
+	<FlexLayout Margin="20"
+				Direction="Column">
+		<Label Text="{Binding CourseName}"
+		       FontSize="Medium"/>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="Start Date:"/>
+			<Label Text="{Binding StartDate,
+                      StringFormat='{0:M-d-yyyy}'}" />
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+			<Label Text="End Date:"/>
+			<Label Text="{Binding EndDate,
+                      StringFormat='{0:M-d-yyyy}'}" />
+		</StackLayout>
+		
+		<StackLayout Orientation="Horizontal"
+		             Margin="0, 0, 0, 30">
+			<Label Text="Status of Course:"/>
+			<Label Text="{Binding Status}"/>
+		</StackLayout>
+		<StackLayout Orientation="Horizontal">
+		<Label Text="Show Notes"
+		       FontSize="Medium"/>
+		<Switch x:Name="DisplayNotes"
+		         IsToggled="False"
+		        Toggled="OnDisplayNotesSwitchClicked"/>
+		</StackLayout>
+		<StackLayout Margin="0, 0, 0, 30">
+		<Label x:Name="NotesField"
+		       Text="{Binding Notes}"/>
+		
+		<Button x:Name="ShareButton"
+		        Text="Share" 
+		        HorizontalOptions="Center"
+		        Clicked="OnShareButtonClicked"/>
+		</StackLayout>
+			<Label Text="Instructor"
+			       FontSize="Medium"/>
+			<Label Text="{Binding InstructorName}"/>
+			<Label Text="{Binding InstructorPhone}"/>
+			<Label Text="{Binding InstructorEmail}"
+			       Margin="0, 0, 0, 30"/>
+		
+		
+		<Button Text="Assessments" 
+        		        Clicked="OnAssessmentsButtonClicked"/>
+		
+		
+		
+	</FlexLayout>
+			
+
+</ContentPage>

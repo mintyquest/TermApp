@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermApp.Views.AssessmentEditor"
+             Title="Edit Assessment">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Done"
+                     Clicked="OnSaveButtonClicked" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Margin="20">
+            <Editor x:Name="AssessmentNameEditor"
+                    Margin="0, 0, 0, 30"
+                    Placeholder="Enter the assessment name"
+                    MaxLength="20"
+                    Text="{Binding AssessmentName}"
+                    AutoSize="TextChanges" />
+            <Label Text="Due Date:" 
+                   FontSize="Medium"/>
+            <DatePicker x:Name="DueDatePicker"
+                        Margin="0, 0, 0, 30"
+                        Date="{Binding DueDate}"
+                        MinimumDate="03/01/2022"
+                        Format="D"/>
+        
+            <Picker x:Name="AssessmentTypePicker"
+                    Margin="0, 0, 0, 30"
+                    Title="Select an assessment type">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Objective Assessment</x:String>
+                        <x:String>Project Assessment</x:String>
+                        
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Remind me when it is the day the assessment is due:"/>
+                <CheckBox x:Name="CbNotify"/>
+            </StackLayout>
+            
+            <StackLayout VerticalOptions="CenterAndExpand">
+                <!-- middle spacing -->
+            </StackLayout>
+        
+            <!-- Delete button on bottom of page -->
+            <StackLayout Orientation="Horizontal"
+                         HorizontalOptions="CenterAndExpand"
+                         VerticalOptions="End">
+                
+                <Button Text="Delete" 
+                        BackgroundColor="FireBrick"
+                        TextColor="White"
+                        Clicked="OnDeleteButtonClicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

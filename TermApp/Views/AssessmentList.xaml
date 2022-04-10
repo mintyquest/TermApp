@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermApp.Views.AssessmentList"
+             Title="Assessments">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     Clicked="OnAddClicked" />
+    </ContentPage.ToolbarItems>
+    
+        <StackLayout>
+            <CollectionView x:Name="AssessmentView"
+                            Margin="20"
+                            SelectionMode="Single"
+                            SelectionChanged="OnSelectionChanged">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Vertical"
+                                       ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                
+                
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                    
+                            <Label Text="{Binding AssessmentName}"
+                                   FontSize="Medium"/>
+                            <Label Text="{Binding Type}"
+                                   FontSize="Small"/>
+                    
+                            <Label x:Name="StartAndEnd">
+                                <Label.Text>
+                            
+                                    <MultiBinding StringFormat="{}{0:d} {1:d}">
+                                        <Binding Path="StartDate" />
+                                        <Binding Path="EndDate" />
+                                    </MultiBinding>
+                                
+                                </Label.Text>
+                             
+                            </Label>
+                    
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    
+</ContentPage>

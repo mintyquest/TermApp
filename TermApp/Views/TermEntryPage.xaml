@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TermApp.Views.TermEntryPage"
+             Title="Term Details">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Done"
+                     Clicked="OnSaveButtonClicked" />
+    </ContentPage.ToolbarItems>
+    
+    <StackLayout Margin="20">
+        <Editor Placeholder="Enter the name of the term"
+                MaxLength="20"
+                Margin="0, 0, 0, 30"
+                Text="{Binding TermName}"/>
+        
+        <Label Text="Start Date:" 
+               FontSize="Medium"/>
+        <DatePicker x:Name="StartDatePicker"
+                    Date="{Binding StartDate}"
+                    MinimumDate="03/01/2022"
+                    Format="D"/>
+        
+        <Label Text="End Date:" 
+               FontSize="Medium"/>
+        <DatePicker x:Name="EndDatePicker"
+                    Date="{Binding EndDate}"
+                    MinimumDate="{Binding Source={x:Reference StartDatePicker},
+                                          Path=Date}"
+                    Format="D"/>
+        
+        <StackLayout VerticalOptions="CenterAndExpand">
+            <!-- middle spacing -->
+        </StackLayout>
+        
+        <!-- Delete button on bottom of page -->
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="CenterAndExpand"
+                     VerticalOptions="End">
+                
+            <Button Text="Delete" 
+                    BackgroundColor="AliceBlue"
+                    TextColor="Crimson"
+                    Clicked="OnDeleteButtonClicked"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
